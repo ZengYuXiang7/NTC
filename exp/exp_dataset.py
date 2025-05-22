@@ -15,7 +15,7 @@ class TensorDataset(Dataset):
 
     def __getitem__(self, idx):
         i, j, k = self.x[idx][1], self.x[idx][2], self.x[idx][0]
-        value = self.y[idx]
+        value = self.y[idx].reshape(1)
         return i, j, k, value
 
 def custom_collate_fn(batch, config):

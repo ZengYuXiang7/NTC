@@ -13,7 +13,7 @@ class TrainingConfig:
     patience: int = 20
     verbose: int = 10
     device: str = 'cuda'
-    monitor_metric: str = 'MAE'
+    monitor_metric: str = 'NMAE'
 
 @dataclass
 class BaseModelConfig:
@@ -31,8 +31,8 @@ class DatasetInfo:
     use_train_size: bool = False
     density: float = 0.10
     eval_set: bool = True
-    shuffle: bool = False
-    scaler_method: str = 'stander'
+    shuffle: bool = True
+    scaler_method: str = 'minmax'
 
     seq_len: int = 12
     pred_len: int = 5
