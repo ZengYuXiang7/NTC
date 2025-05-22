@@ -60,8 +60,7 @@ def RunExperiments(log, config):
         log.save_result(metrics)
         log.plotter.record_metric(metrics)
     log('*' * 20 + 'Experiment Success' + '*' * 20)
-
-    log(f'\n{str(model)}')
+    log.end_the_experiment(model)
     return metrics
 
 
@@ -74,7 +73,6 @@ def run(config):
     plotter = MetricsPlotter(log_filename, config)
     log = Logger(log_filename, exper_detail, plotter, config)
     metrics = RunExperiments(log, config)
-    log.end_the_experiment()
     return metrics
 
 
